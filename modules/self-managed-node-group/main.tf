@@ -557,7 +557,7 @@ resource "aws_iam_instance_profile" "this" {
   role = aws_iam_role.this[0].name
 
   name        = var.iam_role_use_name_prefix ? null : local.iam_role_name
-  name_prefix = var.iam_role_use_name_prefix ? "${local.iam_role_name}" : null
+  name_prefix = var.iam_role_use_name_prefix ? "${local.iam_role_name}${var.prefix_separator}" : null
   path        = var.iam_role_path
 
   lifecycle {
